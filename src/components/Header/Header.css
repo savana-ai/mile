@@ -1,0 +1,9 @@
+.design-pad__logo-section {
+    position: absolute;
+    top: 20px;
+    left: 20px;
+    z-index: 1000;
+    width: 75px;
+    height: 75px;
+  }
+  
