@@ -1,64 +1,136 @@
-/* General login container styles */
-.login-container {
-    max-width: 28rem; /* max-w-md */
-    margin: 2rem auto; /* mx-auto mt-8 */
-    padding: 1.5rem; /* p-6 */
-    background-color: white;
-    border-radius: 0.5rem; /* rounded-lg */
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* shadow */
-  }
-  
-  .login-header {
-    font-size: 1.5rem; /* text-2xl */
-    font-weight: bold; /* font-bold */
-    margin-bottom: 1rem; /* mb-4 */
-  }
-  
-  .error-message {
-    color: #f56565; /* text-red-500 */
-    margin-bottom: 1rem; /* mb-4 */
-  }
-  
-  .form {
-    display: flex;
-    flex-direction: column;
-    gap: 1rem; /* space-y-4 */
-  }
-  
-  .form-label {
-    display: block;
-    margin-bottom: 0.25rem; /* mb-1 */
-  }
-  
-  .form-input {
-    width: 100%;
-    padding: 0.5rem; /* p-2 */
-    border: 1px solid #d1d5db; /* border */
-    border-radius: 0.25rem; /* rounded */
-  }
-  
-  .submit-button {
-    width: 100%;
-    background-color: #4299e1; /* bg-blue-500 */
-    color: white;
-    padding: 0.5rem; /* p-2 */
-    border-radius: 0.25rem; /* rounded */
-    cursor: pointer;
-    transition: background-color 0.3s;
-  }
-  
-  .submit-button:hover {
-    background-color: #3182ce; /* hover:bg-blue-600 */
-  }
-  
-  .toggle-button {
-    width: 100%;
-    margin-top: 1rem; /* mt-4 */
-    color: #3182ce; /* text-blue-500 */
-    background: none;
-    border: none;
-    cursor: pointer;
-    text-align: center;
-    font-size: 0.875rem; /* text-sm */
-  }
-  
+@import url('https://fonts.googleapis.com/css?family=Montserrat:400,800');
+
+#sign {
+  color: #333;
+}
+
+span {
+  font-size: 12px;
+  color: #333;
+}
+
+a {
+  color: #333;
+  font-size: 14px;
+  text-decoration: none;
+  margin: 15px 0;
+}
+
+.sign-btn {
+  border-radius: 20px;
+  border: 1px solid #097dea;
+  background: #097dea;
+  background: linear-gradient(65deg, #0270d7 0, #0f8afd 100%);
+  color: #FFFFFF;
+  font-size: 12px;
+  font-weight: bold;
+  padding: 12px 45px;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  transition: transform 80ms ease-in;
+  cursor: pointer;
+  margin: 10px 0;
+}
+
+button:active {
+  transform: scale(0.95);
+}
+
+button:focus {
+  outline: none;
+}
+
+form {
+  background-color: #FFFFFF;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  padding: 0 50px;
+  height: 100%;
+  text-align: center;
+}
+
+input {
+  background-color: #eee;
+  border: none;
+  padding: 12px 15px;
+  margin: 8px 0;
+  width: 100%;
+}
+
+.sign-container {
+  background-color: #fff;
+  border-radius: 10px;
+  box-shadow: 0 14px 28px rgba(0, 0, 0, 0.25), 0 10px 10px rgba(0, 0, 0, 0.22);
+  position: relative;
+  overflow: hidden;
+  width: 380px;
+  max-width: 100%;
+  min-height: 550px;
+  margin: 50px auto;
+}
+
+.form-container {
+  position: absolute;
+  top: 0;
+  height: 100%;
+  transition: all 0.6s ease-in-out;
+}
+
+.sign-in-container {
+  left: 0;
+  width: 100%;
+  z-index: 2;
+}
+
+.sign-up-container {
+  left: 0;
+  width: 100%;
+  opacity: 0;
+  z-index: 1;
+}
+
+.sign-container.right-panel-active .sign-in-container {
+  opacity: 0;
+  z-index: 1;
+}
+
+.sign-container.right-panel-active .sign-up-container {
+  opacity: 1;
+  z-index: 2;
+}
+
+.social-container {
+  margin: 20px 0;
+}
+
+.social-container a {
+  border: 1px solid #DDDDDD;
+  border-radius: 50%;
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  margin: 0 5px;
+  height: 40px;
+  width: 40px;
+  color: #333;
+  text-decoration: none;
+  font-size: 20px;
+}
+
+.toggle-button {
+  border: none;
+  background-color: transparent;
+  color: #097dea;
+  font-size: 14px;
+  font-weight: bold;
+  cursor: pointer;
+  margin-top: 20px;
+  text-decoration: underline;
+  transition: color 0.3s;
+}
+
+.toggle-button:hover {
+  color: #097dea;
+}

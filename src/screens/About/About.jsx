@@ -1,9 +1,11 @@
 import React from 'react';
 import './About.css';  // Import the external CSS file
+import Header from "../../components/Header/Header"
 
 const About = () => {
   return (
     <div className="about-container">
+      <Header />
       <h1 className="about-title">About DesignPad</h1>
       <div className="about-content">
         <p className="about-text">

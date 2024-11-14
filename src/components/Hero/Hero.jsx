@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 
 const Hero = () => {
   return (
@@ -6,11 +7,11 @@ const Hero = () => {
       <div className="container">
         <div className="hero-inner">
           <div className="hero-copy">
-            <h1 className="hero-title mt-0">Landing template for startups</h1>
-            <p className="hero-paragraph">Welcome to Your Future Our landing page template.</p>
+            <h1 className="hero-title mt-0">Accelerating Your Business with AI-Driven Automation</h1>
+            <p className="hero-paragraph">Accelerate Digital Transformation, Streamline Operations, and Build Scalable Solutions Faster Than Ever.</p>
             <div className="hero-cta">
-              <a className="button button-primary" href="#">Pre order now</a>
-              <a className="button" href="#">Get in touch</a>
+              <Link to="/login" className="button button-primary" >Get Started</Link>
+            <Link to="/about" className="button">Learn More</Link>
             </div>
           </div>
           <div className="hero-figure anime-element">

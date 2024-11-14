@@ -7,7 +7,7 @@ const Header = () => {
         <div className="site-header-inner">
           <div className="brand header-brand">
             <h1 className="m-0">
-              <a href="#">
+              <a href="/">
                 <svg width="28" height="32" xmlns="http://www.w3.org/2000/svg">
                   <defs>
                     <linearGradient x1="50%" y1="0%" x2="50%" y2="100%" id="a">
