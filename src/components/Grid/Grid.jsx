@@ -5,7 +5,7 @@ import {
   create as svgCreate
 } from 'tiny-svg';
 import BpmnJS from 'bpmn-js';
-import './styles/Grid.css';
+import './Grid.css';
 
 const EMPTY_DIAGRAM = `<?xml version="1.0" encoding="UTF-8"?>
 <bpmn:definitions xmlns:bpmn="http://www.omg.org/spec/BPMN/20100524/MODEL" 

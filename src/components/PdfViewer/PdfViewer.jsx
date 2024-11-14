@@ -1,5 +1,5 @@
 import React from 'react';
-import './PDFCard.css';
+import './PdfViewer.css';
 
 const PDFCard = ({ fileName, filePath }) => {
   return (

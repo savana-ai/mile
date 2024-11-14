@@ -1,7 +1,7 @@
 
 // src/components/DesignPad/UserStoryCards.jsx
 import React from 'react';
-import './styles/UserStoryCards.css';
+import './UserStoryCards.css';
 
 export const UserStoryCards = () => {
   const stories = [

@@ -1,6 +1,6 @@
 // src/components/DesignPad/ChatBox.jsx
 import React, { useState, useRef, useEffect } from 'react';
-import './styles/ChatBox.css';
+import './ChatBox.css';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faMicrophone } from '@fortawesome/free-solid-svg-icons';
 

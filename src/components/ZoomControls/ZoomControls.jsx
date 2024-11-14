@@ -1,6 +1,6 @@
 // src/components/DesignPad/ZoomControls.jsx
 import React from 'react';
-import './styles/ZoomControls.css';
+import './ZoomControls.css';
 
 export const ZoomControls = () => {
   return (

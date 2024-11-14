@@ -1,14 +1,13 @@
 // src/components/DesignPad/index.jsx
 import React from 'react';
-import BpmnJS from 'bpmn-js/dist/bpmn-modeler.development.js';
-import { Grid } from './Grid';
-import { UserStoryCards } from './UserStoryCards';
-import { ChatBox } from './ChatBox';
-import PDFCardContainer from './PdfViewer';
-import { Logo } from './Logo';
-import { Navigation } from './Navigation';
-import { ZoomControls } from './ZoomControls';
-import './styles/DesignPad.css';
+import { Grid } from '../../components/Grid/Grid';
+import { UserStoryCards } from '../../components/UserStoryCards/UserStoryCards';
+import { ChatBox } from '../../components/ChatBox/ChatBox';
+import PDFCardContainer from '../../components/PdfViewer/PdfViewer';
+import { Logo } from '../../components/Logo/Logo';
+import { Navigation } from '../../components/Navigation/Navigation';
+import { ZoomControls } from '../../components/ZoomControls/ZoomControls';
+import './DesignPad.css';
 
 export const DesignPad = () => {
   return (

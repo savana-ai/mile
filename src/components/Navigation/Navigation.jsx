@@ -2,7 +2,7 @@
 
 // src/components/DesignPad/Navigation.jsx
 import React from 'react';
-import './styles/Navigation.css';
+import './Navigation.css';
 
 export const Navigation = () => {
   return (
