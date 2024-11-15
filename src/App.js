@@ -4,7 +4,7 @@ import React from 'react';
 import { BrowserRouter, Routes, Route, Navigate } from 'react-router-dom';
 import { onAuthStateChanged } from 'firebase/auth';
 import { auth } from './config/firebase';
-import { DesignPad } from './screens/DesignPad/DesignPad';
+// import { DesignPad } from './screens/DesignPad/DesignPad';
 import Navbar from './screens/Navbar/Navbar';
 import Landing from './screens/Landing/Landing';
 import About from './screens/About/About';
@@ -47,14 +47,14 @@ const App = () => {
         <Route path="/" element={<Landing />} />
         <Route path="/about" element={<About />} />
         <Route path="/login" element={<Login />} />
-        <Route
+        {/* <Route
           path="/design"
           element={
             <PrivateRoute>
               <DesignPad />
             </PrivateRoute>
           }
-        />
+        /> */}
         <Route
           path="/feedback"
           element={
