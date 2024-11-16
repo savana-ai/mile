@@ -1,131 +1,35 @@
 import React, { useEffect, useRef, useState } from 'react';
-import {
-  append as svgAppend,
-  attr as svgAttr,
-  create as svgCreate
-} from 'tiny-svg';
-import BpmnJS from 'bpmn-js';
+import { append as svgAppend, attr as svgAttr, create as svgCreate } from 'tiny-svg';
+import { ContentViewer } from '../ContentViewer/ContentViewer';
 import './Grid.css';
-
-const EMPTY_DIAGRAM = `<?xml version="1.0" encoding="UTF-8"?>
-<bpmn:definitions xmlns:bpmn="http://www.omg.org/spec/BPMN/20100524/MODEL" 
-                  xmlns:bpmndi="http://www.omg.org/spec/BPMN/20100524/DI" 
-                  xmlns:dc="http://www.omg.org/spec/DD/20100524/DC"
-                  id="Definitions_1" 
-                  targetNamespace="http://bpmn.io/schema/bpmn">
-  <bpmn:process id="Process_1" isExecutable="false">
-    <bpmn:startEvent id="StartEvent_1"/>
-  </bpmn:process>
-  <bpmndi:BPMNDiagram id="BPMNDiagram_1">
-    <bpmndi:BPMNPlane id="BPMNPlane_1" bpmnElement="Process_1">
-      <bpmndi:BPMNShape id="_BPMNShape_StartEvent_1" bpmnElement="StartEvent_1">
-        <dc:Bounds x="152" y="102" width="36" height="36"/>
-      </bpmndi:BPMNShape>
-    </bpmndi:BPMNPlane>
-  </bpmndi:BPMNDiagram>
-</bpmn:definitions>`;
 
 export const Grid = () => {
   const canvasRef = useRef(null);
-  const bpmnRef = useRef(null);
-  const [error, setError] = useState(null);
-  const [modeler, setModeler] = useState(null);
-  const [loadingStatus, setLoadingStatus] = useState('initializing');
+  const [activeStory, setActiveStory] = useState(() => {
+    const storedStory = localStorage.getItem('activeStory');
+    return storedStory ? JSON.parse(storedStory) : null;
+  });
 
-  // Initialize BPMN modeler
+  // Function to handle localStorage changes
+  const handleStorageChange = () => {
+    const storedStory = localStorage.getItem('activeStory');
+    setActiveStory(storedStory ? JSON.parse(storedStory) : null);
+  };
+
   useEffect(() => {
-    if (!bpmnRef.current) return;
-
-    try {
-      const bpmnModeler = new BpmnJS({
-        container: bpmnRef.current,
-        height: '100%',
-        width: '100%',
-        // Add modules configuration
-        additionalModules: [],
-        // Enable keyboard bindings
-        keyboard: { bindTo: document }
-      });
-
-      // Set up event listeners before setting the modeler
-      bpmnModeler.on('import.done', ({ error: importError, warnings }) => {
-        if (importError) {
-          console.error('BPMN import error:', importError);
-          setError(`Import error: ${importError.message}`);
-          setLoadingStatus('error');
-        } else {
-          console.log('BPMN import completed with warnings:', warnings);
-          setError(null);
-          setLoadingStatus('complete');
-          
-          // Auto-adjust viewport after successful import
-          const canvas = bpmnModeler.get('canvas');
-          if (canvas) {
-            canvas.zoom('fit-viewport', 'auto');
-          }
-        }
-      });
-
-      setModeler(bpmnModeler);
-      setLoadingStatus('modeler-created');
-
-      return () => {
-        bpmnModeler.destroy();
-      };
-    } catch (err) {
-      console.error('Error initializing BPMN modeler:', err);
-      setError(`Failed to initialize BPMN modeler: ${err.message}`);
-    }
-  }, []);
-
-  // Load BPMN diagram
-  useEffect(() => {
-    if (!modeler) return;
-
-    const loadDiagram = async () => {
-      try {
-        setLoadingStatus('loading-file');
-        const response = await fetch('/data/diagram.bpmn');
-        
-        if (!response.ok) {
-          throw new Error(`Failed to load file (${response.status} ${response.statusText})`);
-        }
-
-        const bpmnXML = await response.text();
-        console.log('Loaded BPMN XML length:', bpmnXML.length);
-
-        // Import the diagram
-        await new Promise((resolve, reject) => {
-          modeler.importXML(bpmnXML, (err) => {
-            if (err) {
-              console.error('Error details:', err);
-              reject(err);
-            } else {
-              resolve();
-            }
-          });
-        });
-
-      } catch (error) {
-        console.error('Error loading or importing diagram:', error);
-        setError(`Failed to load or import diagram: ${error.message}`);
-        
-        // Try loading empty diagram as fallback
-        try {
-          await new Promise((resolve, reject) => {
-            modeler.importXML(EMPTY_DIAGRAM, (err) => {
-              if (err) reject(err);
-              else resolve();
-            });
-          });
-        } catch (fallbackError) {
-          setError(`Failed to load empty diagram: ${fallbackError.message}`);
-        }
+    // Listen to localStorage updates across tabs/windows
+    const handleStorageEvent = (event) => {
+      if (event.key === 'activeStory') {
+        handleStorageChange();
       }
     };
 
-    loadDiagram();
-  }, [modeler]);
+    window.addEventListener('storage', handleStorageEvent);
+
+    return () => {
+      window.removeEventListener('storage', handleStorageEvent);
+    };
+  }, []);
 
   // Initialize grid
   useEffect(() => {
@@ -138,12 +42,12 @@ export const Grid = () => {
 
       const pattern = svgCreate('pattern');
       const patternId = `grid-pattern-${Math.random().toString(36).substr(2, 9)}`;
-      
+
       svgAttr(pattern, {
         id: patternId,
         width: 20,
         height: 20,
-        patternUnits: 'userSpaceOnUse'
+        patternUnits: 'userSpaceOnUse',
       });
 
       const circle = svgCreate('circle');
@@ -151,7 +55,7 @@ export const Grid = () => {
         cx: 0.5,
         cy: 0.5,
         r: 0.5,
-        fill: '#c3c3c3'
+        fill: '#c3c3c3',
       });
 
       svgAppend(pattern, circle);
@@ -161,7 +65,7 @@ export const Grid = () => {
       svgAttr(grid, {
         width: '100%',
         height: '100%',
-        fill: `url(#${patternId})`
+        fill: `url(#${patternId})`,
       });
 
       svgAppend(svg, grid);
@@ -171,30 +75,35 @@ export const Grid = () => {
   }, []);
 
   return (
-    <div className="design-pad" style={{ width: '100%', height: '800px', position: 'relative' }}>
-      <svg ref={canvasRef} className="design-pad__grid" style={{ position: 'absolute', width: '100%', height: '100%' }} />
-      {error ? (
-        <div className="error-alert" style={{ position: 'absolute', top: '50%', left: '50%', transform: 'translate(-50%, -50%)', backgroundColor: '#fff', padding: '20px', borderRadius: '5px', boxShadow: '0 2px 4px rgba(0,0,0,0.2)' }}>
-          <div className="error-alert__title" style={{ fontWeight: 'bold', marginBottom: '10px' }}>Error</div>
-          <div className="error-alert__description">
-            {error}
-            <div className="error-alert__status" style={{ marginTop: '10px', color: '#666' }}>Status: {loadingStatus}</div>
-          </div>
+    <div className="grid-container">
+      <svg
+        ref={canvasRef}
+        className="design-pad__grid"
+        style={{
+          position: 'absolute',
+          width: '100%',
+          height: '100%',
+          zIndex: -1, // Ensure it's in the background
+        }}
+      />
+
+      <div className="content-layout">
+        {/* Active Content Area */}
+        <div className="main-content">
+        <ContentViewer />
         </div>
-      ) : (
-        <div 
-          ref={bpmnRef} 
-          className="bpmn-container" 
-          style={{ 
-            position: 'absolute', 
-            top: 0, 
-            left: 0, 
-            width: '100%', 
-            height: '100%',
-            backgroundColor: 'transparent'
-          }} 
-        />
-      )}
+      </div>
+
+      <footer className="io-about">
+        <ul className="io-control-list io-horizontal">
+          <li><a href="/" target="_blank" rel="noopener noreferrer">Privacy</a></li>
+          <li><a href="/" target="_blank" rel="noopener noreferrer">Terms</a></li>
+          <li><a href="/">Cookie Preferences</a></li>
+          <li><a href="/" data-track="help:open-about">About</a></li>
+          <li><a href="/" target="_blank" rel="noopener noreferrer" data-track="help:open-report">Give Feedback</a></li>
+        </ul>
+      </footer>
     </div>
   );
 };
+

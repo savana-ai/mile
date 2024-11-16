@@ -1,7 +1,7 @@
 /* Base styling */
 @import "~@fortawesome/fontawesome-free/css/all.min.css";
 
-body {
+/* body {
   font-family: Arial, sans-serif;
   display: flex;
   justify-content: center;
@@ -9,7 +9,7 @@ body {
   min-height: 100vh;
   background-color: #f0f2f5;
   margin: 0;
-}
+} */
 
 /* Container styling */
 .card-container {

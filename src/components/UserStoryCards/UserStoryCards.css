@@ -6,6 +6,7 @@
     padding: 20px;
     overflow-x: auto;
     font-size: small;
+    position: relative;
   }
   
   .user-story-card {
@@ -19,6 +20,7 @@
     flex-direction: column;
     justify-content: space-between;
     box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+    cursor: pointer;
   }
   
   .card-header {

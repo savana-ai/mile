@@ -28,7 +28,6 @@ export const DesignPad = () => {
         <ZoomControls />
       </div>
       <ChatBox />
-      <Navigation />
     </div>
   );
 };

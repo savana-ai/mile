@@ -28,6 +28,7 @@
     overflow-x: auto;
     display: flex;
     gap: 20px;
+    margin-bottom: 1rem;
   }
   
   .design-pad__documents {
@@ -51,3 +52,4 @@
     height: 100%;
   }
   
+

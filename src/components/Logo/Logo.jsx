@@ -5,6 +5,7 @@ import './Logo.css';
 export const Logo = () => {
   return (
     <div className="goo-container">
+      <a href="/">
       <svg xmlns="http://www.w3.org/2000/svg" version="1.1" style={{ position: 'absolute', width: 0, height: 0 }}>
         <defs>
           <filter id="fancy-goo">
@@ -27,6 +28,8 @@ export const Logo = () => {
         ))}
       </div>
       <div className="container bottom-con" />
+      </a>
+
     </div>
   );
 };
