@@ -1,0 +1,27 @@
+generated content:
+    stakeholders + empathy maps ---+
+    value props + user stories ---+
+    data model + methods --
+    usecase + process model --
+
+auto-gen configs [testability, performance, availabilty]:
+    domain layer --
+    application service ---
+    view model --
+
+template [build scripts]
+    Infrastructure layer --
+    express + react -
+    Docker + Kubernetes -
+    circle-ci + ansible -
+
+addons
+    tutorials
+    dashboards
+    security
+    documentation
+    git and version control
+    ci/cd
+
+
+Everything pre-configured: plug and play after content gen 
