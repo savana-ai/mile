@@ -4,7 +4,7 @@ code
 
 ---
 
-background:
+background
 
 data model
 process model - coordination model
@@ -69,3 +69,15 @@ now we build a boiler plate app. It should have:
     infrastructure layer
 
 and also write some scripts to map design to app
+
+---
+
+
+usecase - process model - coordination model 
+
+---
+
+data model - domain layer 
+coordination model - application layer 
+coordination model - infrastructure layer 
+data model - presentation layer
