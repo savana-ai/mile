@@ -1,30 +1,71 @@
-generated content:
-    stakeholders + empathy maps ---+
-    value props + user stories ---+
-    data model + methods --
-    usecase + process model --
+define the workflows
+define the inputs, outputs and method structures
+code
 
-auto-gen configs [testability, performance, availabilty]:
-    domain layer --
-    application layer ---
-    presentation layer
-        external
-        entrypoints
-        repo
+---
 
-template [build scripts]
-    Infrastructure layer --
-    express + react -
-    Docker + Kubernetes -
-    circle-ci + ansible -
+background:
 
-addons
-    tutorials [shephered]
-    dashboards [grafana, kafak, prometheus]
-    security [firebase]
-    documentation [sphix]
-    git and version control [scripts]
-    ci/cd [modular templates]
+data model
+process model - coordination model
+
+---
+
+services:
+    content generation ---+
+        artifact
+    app generation --
+        components
+    app configuration --
+        project
+
+---
+
+the user answers some questionnaire
+AI generates:
+    stakeholders from questionnaire
+    empathy maps from staekholders
+    value propositions from the empathy maps of each stakeholder
+    users stories from the value propositions
+    usecases from userstories
+    data model from the usecases
+    process model from the usecases
+
+The auto-system parses the generated content and:
+configures:
+    domain layer from data model
+    application layer from process model
+    repositories, external services from process model
+    routes/endpoints from app layer app services
+    UI components from domain layer entities and their attributes with state management for UI components inbuilt.
+    actions for buttons
+
+then the auto-sys packages the configured sys by:
+    attaching the configured system to a relevant framework: eg flask, node etc
+    the framework is configured prior with docker, kubernetes, circleci/gitworkflow, ansible
+
+---
+
+the system is previewed then deployed
+
+---
+
+we can thus say we have three app services:
+    content generation
+        entities: Artifact 
+    app configuration
+        entities: ?
+    app packaging
+        entities: ?
 
 
-Everything pre-configured: plug and play after content gen 
+
+----
+
+now we build a boiler plate app. It should have:
+    frameworks
+    package config
+    configuration
+    infrastructure layer
+
+and also write some scripts to map design to app
