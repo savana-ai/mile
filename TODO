@@ -6,8 +6,11 @@ generated content:
 
 auto-gen configs [testability, performance, availabilty]:
     domain layer --
-    application service ---
-    view model --
+    application layer ---
+    presentation layer
+        external
+        entrypoints
+        repo
 
 template [build scripts]
     Infrastructure layer --
@@ -16,12 +19,12 @@ template [build scripts]
     circle-ci + ansible -
 
 addons
-    tutorials
-    dashboards
-    security
-    documentation
-    git and version control
-    ci/cd
+    tutorials [shephered]
+    dashboards [grafana, kafak, prometheus]
+    security [firebase]
+    documentation [sphix]
+    git and version control [scripts]
+    ci/cd [modular templates]
 
 
 Everything pre-configured: plug and play after content gen 
