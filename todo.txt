@@ -75,6 +75,14 @@ and also write some scripts to map design to app
 
 usecase - process model - coordination model 
 
+stakeholder = empathy_map = value_prop = user_story
+user_story = [usecase_1, usecase_2, usecase_n]
+process_model = [usecase_1, usecase_2, usecase_n]
+user_case = [scenario_1, scenario_2, scenario_n]
+
+
+process model in terms of commands, queries, events 
+
 ---
 
 data model - domain layer ---
@@ -83,6 +91,8 @@ coordination model - infrastructure layer ---+
 data model - presentation layer ---
 
 ---
+
+restructure json templates for automatic code generation 
 
 test boilerplate for desired functionality
 implement customer journey
