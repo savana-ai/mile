@@ -97,6 +97,7 @@ data model - presentation layer ---
 ---
 
 restructure json templates for automatic code generation 
+    - generate sample data and algorithms
 
 test boilerplate for desired functionality
 implement customer journey
@@ -114,3 +115,12 @@ improve error handling
 cross platform:
 we define the functionality required for each file/components
 implement the definition in different technologies using AI
+
+technologies:
+    code generation
+    frameworks
+    deployment configs 
+
+--
+
+modularize modules for maintainability 
