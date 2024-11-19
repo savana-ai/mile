@@ -77,7 +77,7 @@ usecase - process model - coordination model
 
 ---
 
-data model - domain layer -
+data model - domain layer ---
 coordination model - application layer ---+
 coordination model - infrastructure layer ---+
-data model - presentation layer --
+data model - presentation layer ---

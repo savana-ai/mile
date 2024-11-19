@@ -31,3 +31,19 @@ addons
 
 
 Everything pre-configured: plug and play after content gen 
+
+
+----
+
+screens : 
+    / 
+        - dashboard [links to overview pages]
+        - carousels for each item
+
+    /overview
+        - for overview any items
+
+    / read
+        - support create, update. delete
+    
+    
