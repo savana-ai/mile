@@ -82,7 +82,11 @@ user_case = [scenario_1, scenario_2, scenario_n]
 
 
 process model in terms of commands, queries, events 
+scenario = domain service 
+steps = methods
 
+
+redirects in api defs
 ---
 
 data model - domain layer ---
