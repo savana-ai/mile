@@ -81,3 +81,17 @@ data model - domain layer ---
 coordination model - application layer ---+
 coordination model - infrastructure layer ---+
 data model - presentation layer ---
+
+---
+
+test boilerplate for desired functionality
+implement customer journey
+improve demo
+
+improve site
+price 
+
+implement documentation of app
+improve read-me
+improve error handling
+

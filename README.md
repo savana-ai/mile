@@ -45,5 +45,19 @@ screens :
 
     / read
         - support create, update. delete
+
+    /user-task
     
-    
+download design materials :
+    stakeholders, empathy maps, value propositions, user stories
+    pre-condition and post-condition
+    process models (our own, that can be converted to coordination model)
+    data model 
+    UL
+
+    code model
+
+    --- 
+
+problem:
+    user story - usecase - process model - data model
