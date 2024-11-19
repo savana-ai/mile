@@ -109,3 +109,8 @@ implement documentation of app
 improve read-me
 improve error handling
 
+---
+
+cross platform:
+we define the functionality required for each file/components
+implement the definition in different technologies using AI
