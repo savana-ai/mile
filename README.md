@@ -51,7 +51,7 @@ screens :
 download design materials :
     stakeholders, empathy maps, value propositions, user stories
     pre-condition and post-condition
-    process models (our own, that can be converted to coordination model)
+    process models
     data model 
     UL
 
@@ -61,3 +61,7 @@ download design materials :
 
 problem:
     user story - usecase - process model - data model
+
+---
+
+stencil for components 
