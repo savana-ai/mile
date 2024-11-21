@@ -1,0 +1,144 @@
+
+.build-faq {
+    background-color: #01195d;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    /* max-width: none; */
+    margin-bottom: 0;
+    margin-left: auto;
+    margin-right: auto;
+    padding-top: 120px;
+    padding-bottom: 120px;
+    display: flex;
+  }
+  * {
+    box-sizing: border-box;
+  }
+  /* body {
+    color: var(--dark);
+    font-family: Lato,sans-serif;
+    font-size: 14px;
+    line-height: 20px;
+  } */
+
+  .wrapper {
+    z-index: 1;
+    background-color: transparent;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    /* max-width: 800px; */
+    display: flex;
+    position: relative;
+  }
+  
+   /* @media screen and (max-width: 991px) { 
+    
+  } */
+  .side-feature.vertical {
+    grid-row-gap: 30px;
+    flex-direction: column;
+    width: 100%;
+    /* max-width: 1400px; */
+    padding-left: 8%;
+    padding-right: 8%;
+  }
+  /* @media screen and (max-width: 991px) { */
+    .side-feature {
+      flex-flow: column wrap;
+      flex-direction: column;
+      align-items: center;
+      padding-left: 8px;
+      padding-right: 8px;
+    }
+  
+  .side-feature {
+    justify-content: center;
+    align-items: stretch;
+    width: 100%;
+    display: flex;
+  }
+  
+  .div-block-95 {
+    align-self: flex-start;
+    padding-bottom: 1%;
+  }
+  
+  .build-h3 {
+    color: #fff;
+    margin: 0 auto;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    font-family: "72 full",sans-serif;
+    font-size: 48px;
+    font-weight: 900;
+  }
+  @media screen and (max-width: 991px) {
+    h2 {
+      font-size: 26px;
+      line-height: 32px;
+    }
+  }
+  @media screen and (max-width: 991px) {
+    .div-block-82 {
+      align-self: flex-start;
+      width: 90%;
+    }
+  }
+  .div-block-82 {
+    flex-direction: column;
+    align-items: stretch;
+    width: 75%;
+    display: flex;
+  }
+  
+  .build-h4.white {
+    color: #fff;
+    font-family: "72 full",sans-serif;
+    font-size: 16px;
+  }
+  @media screen and (max-width: 991px) {
+    .build-h4 {
+      margin-top: 0;
+      font-size: 16px;
+    }
+  }
+  
+  .build-text-block.white {
+    grid-row-gap: 0px;
+    border: 0px none #fff;
+    color: #fff;
+    font-family: "72 full",sans-serif;
+    display: block;
+  }
+  @media screen and (max-width: 991px) {
+    .build-text-block {
+      /* grid-row-gap: 4px; */
+      flex-direction: column;
+      margin-left: 0;
+      margin-right: 0;
+      padding-top: 0;
+      padding-left: 0;
+      padding-right: 20px;
+    }
+  }
+  
+  .build-link-text:visited {
+    color: var(--white);
+  }
+  a:active, a:hover {
+    outline: 0;
+  }
+  .build-link-text {
+    clear: none;
+    color: var(--white);
+  }
+  a {
+    text-decoration: underline;
+  }
+  a {
+    background-color: transparent;
+  }

@@ -5,6 +5,11 @@ import Header from '../../components/Header/Header';
 import Hero from '../../components/Hero/Hero';
 import Footer from '../../components/Footer/Footer';
 import "./Landing.css"
+import FeatureSection from '../../components/features/Features';
+import { statsData } from '../../data/stats';
+import TestimonialsSection from '../../components/Testimonials/Testimonials';
+import PricingTable from '../../components/Pricing/Pricing';
+import FAQ from '../../components/FAQ/FAQ';
 
 const LandingPage = () => {
   useEffect(() => {
@@ -99,6 +104,10 @@ const LandingPage = () => {
       {/* Your other components here */}
       <Header />
       <Hero />
+      <FeatureSection />
+      <TestimonialsSection statsData={statsData} />;
+      <PricingTable />
+      <FAQ />
       <Footer />
     </div>
   );

@@ -13,6 +13,7 @@ body {
   color: #8a94a7;
   background: #1d2026;
   margin: 0;
+  overflow-x: hidden;
 }
 img {
   height: auto;
