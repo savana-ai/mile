@@ -65,3 +65,6 @@ problem:
 ---
 
 stencil for components 
+
+
+-

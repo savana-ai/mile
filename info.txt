@@ -1,0 +1,76 @@
+we want to automate software development in a unique way. Using a blend of AI and automation. We get AI to generate user stories and scenarios, and then from them, it generates the data model (entities, value objects, their attributes and invariants).
+
+It also generates the usecase model from the scenarios, by following a structured template: id, name, actors, precondition(s), main flow, alt flow, post condition(s)
+
+to automatically generate the process model, we specify in our prompt - that usecases whose start condition is another usecases end condition, should be clearly indicated
+
+but we are not yet done. We need one last template. The usecase template is our coordination model. We need the runtime elements. If we look at the usecase main/alt flows, we notice some steps start with "The" - we are interested in these, then we look for the ones that are followed by "system" - then if the 'next word' is not "send(s)" - we take that line, we parse the 'next word' - this word indicates a do command - it targets the lifecycle method of an entity. We just need to know which one.
+
+entities have the following lifecycle methods: [creation, initialization, access, persist, manipulate, translate and destroy]. We can have some heuristic such that based on the next word, we know in which method the step utilizes eg the system updates : persist, the system calculates : manipulate, the system removes : destroy etc.
+
+so we identify them and then map them to an appropriate template. Something else we know that these lifecycle methods are just operations on the attributes if not the entity itself. Both are data types. Data types have a finite number of operation that can be done on them throughout their life cycle. Ill provide them later on.
+
+I suppose since we cant truly know which operation to use (maybe we could with advanced parsing) - but we could leverage AI to complete the templates for us (we've already done the heavy lifting). When the AI fills in the templates for lifecycle methods we are done with the domain layer. We now move to the infrastructure layer.
+
+we go back to steps with the "send(s)" after "system" - actually we can get the LLM to specify the external system at the time of writing the actors - so that we can easily pinpoint their step in the flows. We wont do much with them, just define their name and description and then store it somewhere - for future implementation.
+
+the next part would be to find queries : we look for steps that get information from the database. To make our work easier, we could ask the LLM to indicate whether a step is a do command, a query or an external system intergration. For queries we look for repository names - maybe we can derive from entities : if an entity is not part of an aggregate i suppose it deserves its own repo, otw it shares the agg repo (is this true?)
+
+Finally we move to the presentation layer. We may add a field in the usecase to ask the LLM to provide the screens for the usecase. However, we would have already generated our own screens and components from the data model. Each entity represents a component, and it has CRUDO view components. Its upto to the LLM to determine which of the CRUDO view components will be mapped to which screen, and also the order - user actions are indicated as buttons - once we have the template, we can just layout the components in the prescribed screen.
+
+Another thing we need to cater for the user is the redirects. Im not sure about this, as it deals with the routes in the infra layer. Since routes are tethered to usecases - ie one route per usecase, we can say if a usecase has a redirect, then the route will implement the redirect.
+
+now, everything we've discussed so far is highly automatable - and also follows the clean layered approach. for the lifecycle methods, we just need to know the params to be used in a step, the lifecycle method and if its a manipulation type, we need to know the operation. If we use a lib such as numpy, this becomes easy to automate. instead of having to write functions such as def add(a, b)... we know that np sum takes params and return sum. we have our args and kwargs, if we know the operation, we just maps the params to the operation in a dynamic way, no need to overthink it 
+
+We can have a code generator, which will transform templates to actual executable code. The steps will be implemented as commands and queries, lifecylce methods and the data model to the domain layer, screens, components and buttons to the presentation, external services, repos and routes to the infra layer.
+
+lifecycle methods:
+**1. **`Create`
+Operations or methods that produce a new instance of the data type.
+* `int`: Using literals or constructors like `int()`.
+* `str`: Using literals, concatenation (`+`), repetition (`*`), or constructors like `str()`.
+* `list`: Using literals (`[]`), comprehensions, or constructors like `list()`.
+* `dict`: Using literals (`{}`) or constructors like `dict()`.
+* `tuple`: Using literals (`()`), unpacking, or constructors like `tuple()`.
+* `set`: Using literals (`{}` for sets of values) or `set()`.
+**2. **`Init`
+Initial setup or modification of an instance, typically during or after creation.
+* `list`: `.append()`, `.extend()`, `.insert()`.
+* `dict`: Setting keys directly (`d[key] = value`), `.update()`.
+* `set`: `.add()`.
+**3. **`Access`
+Retrieve elements or properties of the data type.
+* `int`: No direct accessors; can be inspected or passed to other operations.
+* `str`: Indexing (`[]`), slicing (`[:]`), `.find()`, `.startswith()`, `.endswith()`.
+* `list`: Indexing (`[]`), slicing (`[:]`), `.index()`.
+* `dict`: `.get()`, `d[key]`, `.keys()`, `.values()`, `.items()`.
+* `tuple`: Indexing (`[]`), slicing (`[:]`), `.index()`.
+* `set`: No positional access; membership test with `in`.
+**4. **`Persist`
+Store or save the state or representation of the data type, often externally.
+* `int`, `str`, `list`, `dict`, `tuple`, `set`: Typically involves serialization (e.g., `json.dump()`, `pickle.dump()`).
+* `str`: Often written to files or used in logging.
+**5. **`Manipulate`
+Change or transform the instance or its elements (if mutable).
+* **Mutable types (**`list`, `dict`, `set`):
+   * `list`: `.append()`, `.remove()`, `.sort()`, `.reverse()`, `.pop()`.
+   * `dict`: `.update()`, `.pop()`, `.popitem()`, `d[key] = value`.
+   * `set`: `.add()`, `.remove()`, `.discard()`, `.union()`, `.intersection()`.
+* **Immutable types (**`int`, `str`, `tuple`):
+   * `int`: Arithmetic and bitwise operations.
+   * `str`: `.replace()`, `.upper()`, `.lower()`, concatenation (`+`).
+   * `tuple`: Indirectly manipulated by creating a new tuple.
+**6. **`Translate`
+Transform or map the instance to another type or representation.
+* `int`: Conversion with `float()`, `str()`, etc.
+* `str`: Conversion with `int()`, `list()`, `.join()`, `.split()`.
+* `list`: Comprehensions, `tuple()`, `set()`, `.join()` for strings.
+* `dict`: Convert to `list` or `set` using `.keys()`, `.values()`, `.items()`.
+* `tuple`: Conversion with `list()`, `set()`.
+* `set`: Conversion with `list()`, `tuple()`.
+**7. **`Destroy`
+Delete the instance or remove its elements.
+* `int`, `str`, `tuple`: Immutable types cannot be modified, but they can be dereferenced or deleted.
+* `list`: `.pop()`, `.remove()`, `del list[index]`.
+* `dict`: `.pop()`, `.popitem()`, `del d[key]`, `.clear()`.
+* `set`: `.remove()`, `.discard()`, `.clear()`.
