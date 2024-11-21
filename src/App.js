@@ -42,7 +42,7 @@ const App = () => {
 
   return (
     <BrowserRouter>
-      {/* <Navbar isAuthenticated={isAuthenticated} /> */}
+      
       <Routes>
         <Route path="/" element={<Landing />} />
         <Route path="/about" element={<About />} />

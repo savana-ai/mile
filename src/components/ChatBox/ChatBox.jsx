@@ -1,9 +1,8 @@
 import React, { useState, useRef, useEffect } from 'react';
 import { useChatStore } from '../../store/chat.store';
 import { QuestionnaireService } from '../../services/questionnaire.service';
-import { ArtifactService } from '../../services/artifact.service';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faMicrophone, faWandMagicSparkles, faComments } from '@fortawesome/free-solid-svg-icons';
+import { faWandMagicSparkles, faComments } from '@fortawesome/free-solid-svg-icons';
 import notificationSound from '../../assets/sounds/notification_tone.mp3';
 import './ChatBox.css';
 
