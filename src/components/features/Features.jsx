@@ -7,7 +7,7 @@ const FeatureSection = () => {
     {
       id: 1,
       icon: "https://cdn.prod.website-files.com/5dbff9c19bf13ec2ef5678ad/5dc6ad7952f69f6b63875efa_Artboard%201%20copy%2022.svg",
-      title: "3. Bring your own data",
+      title: "1. Clarify your requirements with AI",
       description:
         "Connect with our ready-made integrations or any modern API within minutes using the REST integration wizard.",
       buttonText: "Watch video on how it works",
@@ -22,7 +22,7 @@ const FeatureSection = () => {
     {
       id: 2,
       icon: "https://cdn.prod.website-files.com/5dbff9c19bf13ec2ef5678ad/5dc6a8c211520e40afe2074c_Artboard%201%20copy%2015.svg",
-      title: "4. Do magic with over 400 formula functions",
+      title: "2. Preview and Review your App",
       description:
         "Transform data with spreadsheet-style formulas such as calculating the distance between coordinates, converting date and time formats, or implementing hashing.",
       buttonText: "Watch video on how it works",
@@ -37,7 +37,7 @@ const FeatureSection = () => {
     {
       id: 3,
       icon: "https://cdn.prod.website-files.com/5dbff9c19bf13ec2ef5678ad/5dc6ad7952f69f6b63875efa_Artboard%201%20copy%2022.svg",
-      title: "5. Publish apps to mobile, web, tablet...",
+      title: "3. Publish apps to mobile, web, tablet...",
       description:
         "Deploy your app with a few clicks using our cloud build service and ship it to any device.",
       buttonText: "Watch video on how it works",
@@ -53,16 +53,18 @@ const FeatureSection = () => {
 
   return (
     <div>
+      <h3 className="contentSection-box-heading ">
+        How it works
+      </h3>
       {sections.map((section) => (
         <div
           key={section.id}
           id={`Section-${section.id}`}
-          className={`section no-padding-bottom ${
-            section.reversed ? "mobile-reversed" : ""
-          }`}
+          className={`section no-padding-bottom ${section.reversed ? "mobile-reversed" : ""
+            }`}
         >
           <div className="wrapper _1200">
-            <div className="side-feature">
+            <div className="side--feature">
               {!section.reversed && (
                 <div className="side-info">
                   <div className="div-block-6">
