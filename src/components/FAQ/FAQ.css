@@ -3,12 +3,12 @@
     background-color: transparent;
     flex-direction: column;
     justify-content: center;
-    /* align-items: center; */
+    align-items: center;
     width: 100%;
     max-width: none;
     margin-bottom: 0;
-    margin-left: 80px;
-    margin-right: 80px;
+    /* margin-left: 80px;
+    margin-right: 80px; */
     padding-top: 120px;
     padding-bottom: 120px;
     display: flex;
@@ -27,7 +27,7 @@
     background-color: transparent;
     flex-direction: column;
     /* justify-content: center; */
-    align-items: center;
+    /* align-items: center; */
     width: 100%;
     max-width: 800px;
     display: flex;

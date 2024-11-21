@@ -109,7 +109,7 @@
   }
   
   .build-table-element.build-box-shadow.build-purple {
-    background-color: #0982f4;
+    background: linear-gradient(65deg, #0275e1 0, #198ffd 100%);
     border-radius: 15px;
     flex-direction: column;
     justify-content: center;
