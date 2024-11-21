@@ -114,14 +114,14 @@ body {
     position: static;
 }
 
-/* .div-block-7 {
+.div-block-7 {
     justify-content: center;
     align-items: center;
     width: 50%;
     display: flex;
     position: relative;
     right: 0;
-} */
+}
 
 .background-video-2 {
     width: 600px;

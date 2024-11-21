@@ -11,6 +11,7 @@ const FeatureSection = () => {
       description:
         "Connect with our ready-made integrations or any modern API within minutes using the REST integration wizard.",
       buttonText: "Watch video on how it works",
+      type: "video",
       videoPoster:
         "https://cdn.prod.website-files.com/5dbff9c19bf13ec2ef5678ad/5dc98e4241ec9e499d41ce8c_integrations_vid-poster-00001.jpg",
       videoSources: [
@@ -26,6 +27,7 @@ const FeatureSection = () => {
       description:
         "Transform data with spreadsheet-style formulas such as calculating the distance between coordinates, converting date and time formats, or implementing hashing.",
       buttonText: "Watch video on how it works",
+      type: "video",
       videoPoster:
         "https://cdn.prod.website-files.com/5dbff9c19bf13ec2ef5678ad/5dc9d1e0cd9d010749b9e0b6_formula_vid_2-poster-00001.jpg",
       videoSources: [
@@ -41,19 +43,16 @@ const FeatureSection = () => {
       description:
         "Deploy your app with a few clicks using our cloud build service and ship it to any device.",
       buttonText: "Watch video on how it works",
-      videoPoster:
-        "https://cdn.prod.website-files.com/5dbff9c19bf13ec2ef5678ad/5dc9d1e0cd9d010749b9e0b6_formula_vid_2-poster-00001.jpg",
-      videoSources: [
-        "https://cdn.prod.website-files.com/5dbff9c19bf13ec2ef5678ad/5dc9d1e0cd9d010749b9e0b6_formula_vid_2-transcode.mp4",
-        "https://cdn.prod.website-files.com/5dbff9c19bf13ec2ef5678ad/5dc9d1e0cd9d010749b9e0b6_formula_vid_2-transcode.webm",
-      ],
+      type: "image",
+      imageSrc:
+        "https://cdn.prod.website-files.com/5dbff9c19bf13ec2ef5678ad/5dc98f4804adb006011d43bd_launch%402x.png",
       reversed: false,
     },
   ];
 
   return (
     <div>
-      <h3 className="contentSection-box-heading ">
+      <h3 className="contentSection-box-heading">
         How it works
       </h3>
       {sections.map((section) => (
@@ -80,19 +79,27 @@ const FeatureSection = () => {
                 </div>
               )}
               <div className="div-block-7">
-                <div
-                  data-poster-url={section.videoPoster}
-                  data-video-urls={section.videoSources.join(",")}
-                  data-autoplay="true"
-                  data-loop="true"
-                  className="background-video-2 w-background-video w-background-video-atom"
-                >
-                  <video autoPlay loop muted playsInline>
-                    {section.videoSources.map((source, index) => (
-                      <source key={index} src={source} />
-                    ))}
-                  </video>
-                </div>
+                {section.type === 'video' ? (
+                  <div
+                    data-poster-url={section.videoPoster}
+                    data-video-urls={section.videoSources.join(",")}
+                    data-autoplay="true"
+                    data-loop="true"
+                    className="background-video-2 w-background-video w-background-video-atom"
+                  >
+                    <video autoPlay loop muted playsInline>
+                      {section.videoSources.map((source, index) => (
+                        <source key={index} src={source} />
+                      ))}
+                    </video>
+                  </div>
+                ) : (
+                  <img 
+                    src={section.imageSrc} 
+                    alt={section.title} 
+                    className="background-image" 
+                  />
+                )}
               </div>
               {section.reversed && (
                 <div className="side-info">

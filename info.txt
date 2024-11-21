@@ -74,3 +74,38 @@ Delete the instance or remove its elements.
 * `list`: `.pop()`, `.remove()`, `del list[index]`.
 * `dict`: `.pop()`, `.popitem()`, `del d[key]`, `.clear()`.
 * `set`: `.remove()`, `.discard()`, `.clear()`.
+
+
+
+---------
+
+
+a prompt template has the following structure:
+
+subject: the item being generated
+description: of the subject
+instruction: explicit to guide the llm on what to do, how to do it, contraints etc
+context: relevant context to guide the LLM content generation
+template: a json structure template to ensure the LLM generates content in an expected format
+
+---
+
+I need to create prompt that will enable me to prompt an LLM to generate usecases is a structure fashion - from which the necessary information can be extracted.
+
+---
+
+usecase template:
+id
+name
+precondition(s)
+actors
+mainflow
+alt flow
+post conditions
+
+---
+
+we need to constrain the LLM to only generate usecase with limits to the following actors: user(the person utilzing the usecase), system (system facilitating the usecase)
+
+i dont know about users, but i know the system should be confined to the following actions:
+[send, create, initialize, access, persist, manipulate, translate, destroy]. Furthermore, for whatever action the system does, it would require some params. Moreover, if its a well designed system, the actions will be performed on an entity. Lastly, if the action is manipulate - you also need to specify the operation
