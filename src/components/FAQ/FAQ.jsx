@@ -1,5 +1,6 @@
 import React from "react";
-import "./FAQ.css"
+import "./FAQ.css";
+
 const FAQ = () => {
   const faqData = [
     {
@@ -37,15 +38,15 @@ const FAQ = () => {
   ];
 
   return (
-    <div className="faq">
+    <div className="build-faq">
       <div className="wrapper">
         <div className="side-feature vertical">
-          <h2 className="faq-title">FAQ</h2>
-          <div className="faq-items">
+          <h2 className="build-h3">FAQ</h2>
+          <div className="div-block-82">
             {faqData.map((item, index) => (
-              <div key={index} className="faq-item">
-                <h3 className="faq-question">{item.question}</h3>
-                <p className="faq-answer">{item.answer}</p>
+              <div key={index} className="build-text-block">
+                <h3 className="build-h4 white">{item.question}</h3>
+                <p className="build-text-block white">{item.answer}</p>
               </div>
             ))}
           </div>

@@ -3,8 +3,8 @@
     --white: #fff;
     --haze: #f0f0f0;
     --build-black: #000;
-    --build-purple-5: #740065;
-    --build-pink-2: #fff0f5;
+    --build-purple-5: #0982f4;
+    --build-pink-2: #ebf8ff;
     --build-blue-1: #ebf8ff;
   }
   
@@ -19,18 +19,28 @@
     line-height: 20px;
   } */
   
+  .pricing-container {
+    width: 100%;
+    align-items: center;
+    padding-left: 80px;
+    padding-right: 80px;
+  }
   .build-heading-center {
     flex-direction: column;
     justify-content: flex-start;
     align-items: center;
-    width: 100%;
+    /* width: 80%; */
     /* max-width: 1100px; */
     padding-bottom: 100px;
     display: flex;
+    color: var(--dark);
+    font-family: Lato, sans-serif;
+    font-size: 14px;
+    line-height: 20px;
   }
   
   .build-h2 {
-    color: var(--build-black);
+    color: var(--white);
     text-align: center;
     width: 100%;
     margin: 0;
@@ -99,7 +109,7 @@
   }
   
   .build-table-element.build-box-shadow.build-purple {
-    background-image: linear-gradient(#cb36b8,#740065);
+    background-color: #0982f4;
     border-radius: 15px;
     flex-direction: column;
     justify-content: center;
@@ -112,7 +122,7 @@
   }
   
   .build-table-element.build-box-shadow.build-blue-1 {
-    background-color: var(--build-blue-1);
+    background: linear-gradient(to top right, #f32c3c, #FF802B);
     border-radius: 15px;
     flex-direction: column;
     justify-content: center;
@@ -169,7 +179,7 @@
   }
   
   .build-h6.build-type-white.build-absolute.textcolor-black {
-    color: var(--build-black);
+    color: var(--white);
   }
   
   .build-color-button {

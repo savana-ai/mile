@@ -1,36 +1,35 @@
 
 .build-faq {
-    background-color: #01195d;
+    background-color: transparent;
     flex-direction: column;
     justify-content: center;
-    align-items: center;
+    /* align-items: center; */
     width: 100%;
-    /* max-width: none; */
+    max-width: none;
     margin-bottom: 0;
-    margin-left: auto;
-    margin-right: auto;
+    margin-left: 80px;
+    margin-right: 80px;
     padding-top: 120px;
     padding-bottom: 120px;
     display: flex;
-  }
-  * {
-    box-sizing: border-box;
-  }
-  /* body {
     color: var(--dark);
     font-family: Lato,sans-serif;
     font-size: 14px;
     line-height: 20px;
-  } */
+  }
+  * {
+    box-sizing: border-box;
+  }
+ 
 
   .wrapper {
     z-index: 1;
     background-color: transparent;
     flex-direction: column;
-    justify-content: center;
+    /* justify-content: center; */
     align-items: center;
     width: 100%;
-    /* max-width: 800px; */
+    max-width: 800px;
     display: flex;
     position: relative;
   }
@@ -42,7 +41,7 @@
     grid-row-gap: 30px;
     flex-direction: column;
     width: 100%;
-    /* max-width: 1400px; */
+    max-width: 1400px;
     padding-left: 8%;
     padding-right: 8%;
   }
@@ -69,7 +68,7 @@
   
   .build-h3 {
     color: #fff;
-    margin: 0 auto;
+    margin: 0;
     padding-top: 10px;
     padding-bottom: 10px;
     font-family: "72 full",sans-serif;
@@ -116,7 +115,7 @@
   }
   @media screen and (max-width: 991px) {
     .build-text-block {
-      /* grid-row-gap: 4px; */
+      grid-row-gap: 4px;
       flex-direction: column;
       margin-left: 0;
       margin-right: 0;

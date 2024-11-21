@@ -3,6 +3,7 @@ import './Pricing.css';
 
 const PricingTable = () => {
     return (
+        <div className='pricing-container'>
         <div className="build-heading-center">
             <h1 className="build-h2">
                 Build for enterprise<br />or personal usage.
@@ -10,13 +11,13 @@ const PricingTable = () => {
             <div className="build-table">
                 <div className="div-block-86">
                     <div className="div-block-87">
-                        <div>Build pixel perfect web & mobile apps</div>
-                        <div>Integrate with REST APIs</div>
+                        <div>Design Using AI</div>
+                        <div>Auto-generate system</div>
                         <div>Co-create with your team</div>
                         <div>
-                            Build cloud hosted business logic and<br />data models with backends
+                            Download Source Code
                         </div>
-                        <div>Integrate seamlessly with SAP solutions</div>
+                        <div>Integrate seamlessly with External Systems</div>
                         <div>Enterprise authentication & governance</div>
                     </div>
                     <div className="build-table-element build-box-shadow build-purple">
@@ -83,6 +84,7 @@ const PricingTable = () => {
                     </div>
                 </div>
             </div>
+        </div>
         </div>
     );
 };
