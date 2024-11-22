@@ -30,8 +30,24 @@ improve error handling and security
 ---
 
 1. usecase step template
-    user:
-    system: 
+    {
+        "id": "string",
+        "name": "string",
+        "preconditions": ["string"],
+        "actors": ["user", "system"],
+        "mainflow": [
+            {
+                "step": "The {actor} {action} {entity} by {operation}{params}"
+            }
+        ],
+        "altflow": [
+            {
+                "step": "The {actor} {action} {entity} by {operation}{params}"
+            }
+        ],
+        "postconditions": ["string"]
+    }
+
 
 2. manipulate method template
     {
@@ -59,6 +75,11 @@ improve error handling and security
     }
 
 3. Explicit Instructions for prompts 
+
 4. Static context and constraints for prompts 
+    usecase
+        available params 
+    methods:
+        avaiable operations
 
 5.
