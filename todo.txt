@@ -1,98 +1,15 @@
-define the workflows
-define the inputs, outputs and method structures
-code
 
----
-
-background
-
-data model
-process model - coordination model
-
----
-
-services:
-    content generation ---+
-        artifact
-    app generation --
-        components
-    app configuration --
-        project
-
----
-
-the user answers some questionnaire
-AI generates:
-    stakeholders from questionnaire
-    empathy maps from staekholders
-    value propositions from the empathy maps of each stakeholder
-    users stories from the value propositions
-    usecases from userstories
-    data model from the usecases
-    process model from the usecases
-
-The auto-system parses the generated content and:
-configures:
-    domain layer from data model
-    application layer from process model
-    repositories, external services from process model
-    routes/endpoints from app layer app services
-    UI components from domain layer entities and their attributes with state management for UI components inbuilt.
-    actions for buttons
-
-then the auto-sys packages the configured sys by:
-    attaching the configured system to a relevant framework: eg flask, node etc
-    the framework is configured prior with docker, kubernetes, circleci/gitworkflow, ansible
-
----
-
-the system is previewed then deployed
-
----
 
 we can thus say we have three app services:
     content generation
         entities: Artifact 
-    app configuration
-        entities: ?
-    app packaging
-        entities: ?
+    scripts pipeline
 
 
-
-----
-
-now we build a boiler plate app. It should have:
-    frameworks
-    package config
-    configuration
-    infrastructure layer
-
-and also write some scripts to map design to app
 
 ---
-
-
-usecase - process model - coordination model 
-
-stakeholder = empathy_map = value_prop = user_story
-user_story = [usecase_1, usecase_2, usecase_n]
-process_model = [usecase_1, usecase_2, usecase_n]
-user_case = [scenario_1, scenario_2, scenario_n]
-
-
-process model in terms of commands, queries, events 
-scenario = domain service 
-steps = methods
-
-
 redirects in api defs
 ---
-
-data model - domain layer ---
-coordination model - application layer ---+
-coordination model - infrastructure layer ---+
-data model - presentation layer ---
 
 ---
 
@@ -103,32 +20,45 @@ test boilerplate for desired functionality
 implement customer journey
 improve demo
 
-improve site
-price 
+improve site --
+price ---
 
 implement documentation of app
 improve read-me
-improve error handling
+improve error handling and security
 
 ---
 
-cross platform:
-we define the functionality required for each file/components
-implement the definition in different technologies using AI
+1. usecase step template
+    user:
+    system: 
 
-technologies:
-    code generation
-    frameworks
-    deployment configs 
+2. manipulate method template
+    {
+        objective
+        sample input data 
+        expected output data 
+        input params
+        steps: [
+            1 : {
+                namespace
+                operation
+                params
+            },
+            2 : {
+                namespace
+                operation
+                params
+            },
+            n: {
+                namespace
+                operation
+                params
+            },
+        ]
+    }
 
---
+3. Explicit Instructions for prompts 
+4. Static context and constraints for prompts 
 
-modularize modules for maintainability 
-
-
-----
-
-usecases
-
-coordination model 
-data model 
+5.
