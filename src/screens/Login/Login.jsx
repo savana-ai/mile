@@ -15,12 +15,13 @@ const Login = () => {
   const [firebaseInitialized, setFirebaseInitialized] = useState(false);
   
   useEffect(() => {
-    const unsubscribe = onAuthStateChanged(auth, (user) => {
+    const unsubscribe = onAuthStateChanged(auth, () => {
       setFirebaseInitialized(true);
     });
-    
+  
     return () => unsubscribe();
   }, []);
+  
 
   // Basic email validation
   const isValidEmail = (email) => {

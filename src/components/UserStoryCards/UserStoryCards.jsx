@@ -9,7 +9,7 @@ export const setLocalStorageItem = (key, value) => {
   const event = new Event('localStorageUpdate');
   window.dispatchEvent(event);
 };
-
+ 
 export const UserStoryCards = () => {
   const [stories, setStories] = useState([]);
 

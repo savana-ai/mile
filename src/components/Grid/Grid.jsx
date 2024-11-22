@@ -9,6 +9,7 @@ export const Grid = () => {
     const storedStory = localStorage.getItem('activeStory');
     return storedStory ? JSON.parse(storedStory) : null;
   });
+  console.log(activeStory);
 
   // Function to handle localStorage changes
   const handleStorageChange = () => {

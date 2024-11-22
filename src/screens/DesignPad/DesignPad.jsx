@@ -5,7 +5,6 @@ import { UserStoryCards } from '../../components/UserStoryCards/UserStoryCards';
 import { ChatBox } from '../../components/ChatBox/ChatBox';
 import PDFCardContainer from '../../components/PdfViewer/PdfViewer';
 import { Logo } from '../../components/Logo/Logo';
-import { Navigation } from '../../components/Navigation/Navigation';
 import { ZoomControls } from '../../components/ZoomControls/ZoomControls';
 import './DesignPad.css';
 
